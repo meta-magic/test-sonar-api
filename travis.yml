@@ -1,0 +1,34 @@
+sudo: required
+dist: trusty
+
+#install google chrome, using addons
+addons:
+  sonarcloud:
+    organization: "metamagic" # the key of the org you chose at step #3
+    token:
+      secure: 07561e0739a9f2ffeb620e3c16d4b175a7c71ca8 # encrypted value of your token   
+ 
+language: node_js
+node_js:
+  - "8"
+
+before_script:
+  - export CHROME_BIN=chromium-browser
+  - export DISPLAY=:99.0
+  - sh -e /etc/init.d/xvfb start
+  - npm install --global gulp --save
+  - gem install sass
+  - git fetch --unshallow
+  - gulp -v
+
+            
+script: 
+  - gulp test --max_old_space_size=8192
+  - if [ "$TRAVIS_PULL_REQUEST" = "false" ]; then sonar-scanner ; fi
+  - cd ../../ && pwd && gulp build --max_old_space_size=8192
+
+  
+
+cache:
+  yarn: true
+  
