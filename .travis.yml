@@ -19,7 +19,7 @@ before_script:
             
 script: 
   - npm install
-  - ng test
+  - timeout 120s ng test
   - if [ "$TRAVIS_PULL_REQUEST" = "false" ]; then sonar-scanner ; fi
   - cd ../../ && pwd && ng build
  
