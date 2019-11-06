@@ -19,13 +19,13 @@ before_script:
   - npm install --global gulp --save
   - gem install sass
   - git fetch --unshallow
-  - gulp -v
+  - ng -v
 
             
 script: 
-  - gulp test --max_old_space_size=8192
+  - ng test
   - if [ "$TRAVIS_PULL_REQUEST" = "false" ]; then sonar-scanner ; fi
-  - cd ../../ && pwd && gulp build --max_old_space_size=8192
+  - cd ../../ && pwd && ng build
 
   
 
