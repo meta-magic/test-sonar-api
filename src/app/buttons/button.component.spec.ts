@@ -47,8 +47,13 @@ describe('amexio-button', () => {
     expect(comp.disabled).toEqual(false);
   });
 
-  xit('iconClick()',()=>{
+  it('iconClick()',()=>{
 
+    comp.disabled = true;
+    expect(comp.disabled).toBeTruthy();
+    fixture.debugElement.query(By.css('amexio-c-icon'))
+//          .triggerEventHandler('click',null);
+    fixture.detectChanges();
 
   });
 });

@@ -36,7 +36,7 @@ describe('amexio-email-input', () => {
 
   it('getPattern() : ', () => {
     fixture.detectChanges();
-    expect(comp.pattern).toEqual('\s');
+    expect(comp.pattern).toEqual('/\S+@\S+\.\S+/');
   });
 
   it('setPattern() : ', () => {
@@ -53,8 +53,10 @@ describe('amexio-email-input', () => {
     expect(comp.regEx).toEqual(new RegExp(comp.value));
   });
 
-  it( 'validate() :',()=>{
-    expect(comp.isEmailFieldValid()).toHaveBeenCalled();
+  it( 'validate() :', () => {
+    spyOn(comp, 'isEmailFieldValid');
+    comp.isEmailFieldValid();
+    expect(comp.isEmailFieldValid).toHaveBeenCalled();
   });
 
 });
