@@ -15,11 +15,7 @@
         aria-describedby="emailDes"
         [attr.aria-disabled]="disabled ? true: null"
         [attr.aria-required]="!allowblank"
-        [attr.aria-invalid]="!isValid "
-
-
-
-        
+        [attr.aria-invalid]="!isValid "       
          class="input-control"
          [ngClass]="model.touched ? allowblank ? '' : (isValid && model.touched) ? 'input-control-success' : 'input-control-error' :''"
          [(ngModel)]="value"

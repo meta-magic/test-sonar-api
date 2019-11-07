@@ -45,5 +45,10 @@ describe('amexio-button', () => {
     fixture.detectChanges();
     expect(comp.ispressed).toEqual(false);
     expect(comp.disabled).toEqual(false);
-  });  
+  });
+
+  xit('iconClick()',()=>{
+
+
+  });
 });

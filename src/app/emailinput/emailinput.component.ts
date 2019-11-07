@@ -170,6 +170,8 @@ description : Sets the error message for validation
     this.name = this.generateName(this.name, this.fieldlabel, 'emailinput');
     this.componentId = this.createCompId('emailinput', this.name);
   }
+
+
   public validate(c: FormControl) {
     return this.isEmailFieldValid() ? null : {
       jsonParseError: {
