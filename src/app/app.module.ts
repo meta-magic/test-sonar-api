@@ -10,7 +10,7 @@ import { AmexioWidgetModule,
   AmexioDashBoardModule,
   AmexioEnterpriseModule,
   AmexioMapModule,
-  AmexioFormsModule } from "amexio-ng-extensions"; // Import Amexio library
+  AmexioFormsModule } from 'amexio-ng-extensions'; // Import Amexio library
 import { AmexioInputHelperComponent } from './base/input.helper.component';
 import { CommonIconComponent } from './base/components/common.icon.component';
 import { CommonDataService } from './services/common.data.service';
