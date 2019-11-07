@@ -20,7 +20,7 @@ describe('amexio-email-input', () => {
     fixture = TestBed.createComponent(AmexioEmailInputComponent);
     comp = fixture.componentInstance;
 
-    comp.pattern = '\s';
+    comp.pattern = '/\S+@\S+\.\S+/';
     comp.name = 'Email';
     comp.fieldlabel = 'email';
   });
@@ -47,10 +47,14 @@ describe('amexio-email-input', () => {
 
   it('setPattern() : ', () => {
     fixture.detectChanges();
-    comp.value = '\s';
-    expect(comp.pattern).toEqual('\s');
+    comp.value = '/\S+@\S+\.\S+/';
+    expect(comp.pattern).toEqual(comp.value);
     expect(comp.regEx).toBeDefined();
     expect(comp.regEx).toEqual(new RegExp(comp.value));
+  });
+
+  it( 'validate() :',()=>{
+    expect(comp.isEmailFieldValid()).toHaveBeenCalled();
   });
 
 });
