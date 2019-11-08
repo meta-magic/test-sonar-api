@@ -26,11 +26,13 @@ describe('amexio-button', () => {
     comp.disabled = true;
     fixture.detectChanges();
     expect(comp.ispressed).toEqual(true);
-    if(comp.disabled)
+    if(!comp.disabled)
     {
       fixture.detectChanges();
       expect(comp.disabled).toEqual(true);
       button.triggerEventHandler('click', {});
+      fixture.detectChanges();
+      expect(comp.ispressed).toEqual(false);
     }
   //   expect(
   //   fixture.debugElement.query(By.css('h1')).nativeElement.innerText
