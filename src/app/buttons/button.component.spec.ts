@@ -21,7 +21,7 @@ describe('amexio-button', () => {
   });
 
   it('buttonClick(): ', () => {
-    //spyOn(comp, 'buttonClick');
+    spyOn(comp, 'buttonClick');
     const button = fixture.debugElement.query(By.css('button'));
     comp.ispressed = true;
     comp.disabled = false;
@@ -29,12 +29,11 @@ describe('amexio-button', () => {
     expect(comp.ispressed).toEqual(true);
     if(!comp.disabled)
     {
+      //expect(comp.ispressed).toEqual(false);
       button.triggerEventHandler('click', {});
       fixture.detectChanges();
+      expect(comp.buttonClick).toHaveBeenCalled();
       expect(comp.disabled).toEqual(false);
-      expect(comp.ispressed).toEqual(false);
-
-      //expect(comp.buttonClick).toHaveBeenCalled();
     }
   });
 
@@ -47,33 +46,20 @@ describe('amexio-button', () => {
     fixture.detectChanges();
     expect(comp.ispressed).toEqual(false);
     expect(comp.disabled).toEqual(true);
-    //expect(comp.buttonClick).toHaveBeenCalled();
+    expect(comp.buttonClick).not.toHaveBeenCalled();
   });
 
-  xit('iconClick()',()=>{
-
-    comp.disabled = false;
+  it('iconClick()',()=>{
   
-    const icon =  fixture.debugElement.query(By.css('amexio-c-icon'));
+    comp.disabled = false;
+    const icon = fixture.debugElement.query(By.css('.fa fa-close'));
+    spyOn(comp,'onIconClick');
     if(!comp.disabled)
     {
-      icon.triggerEventHandler('click',null);
+      comp.onIconClick();
       fixture.detectChanges();
       expect(comp.disabled).toBeFalsy();
-      //expect(comp.onIconClick).toHaveBeenCalled();
-    }
-  });
-
-
-  xit('iconClick()',()=>{
-
-    comp.disabled = false;  
-    const icon =  fixture.debugElement.query(By.css('amexio-c-icon'));
-    if(!comp.disabled)
-    {
-      icon.triggerEventHandler('click',null);
-      fixture.detectChanges();
-      expect(comp.disabled).toBeFalsy();
+      expect(comp.onIconClick).toHaveBeenCalled();
     }
   });
 });
