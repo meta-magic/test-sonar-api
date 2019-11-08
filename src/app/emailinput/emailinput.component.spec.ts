@@ -1,4 +1,4 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, async } from '@angular/core/testing';
 import { FormsModule, FormControl } from '@angular/forms';
 import { IconLoaderService } from '../services/icon.service';
 import { AmexioButtonComponent } from './../buttons/button.component';
@@ -20,34 +20,37 @@ describe('amexio-email-input', () => {
     fixture = TestBed.createComponent(AmexioEmailInputComponent);
     comp = fixture.componentInstance;
 
-    comp.pattern = '/\S+@\S+\.\S+/';
-    comp.name = 'Email';
+    comp._pattern = '/\S+@\S+\.\S+/';
+    comp.name = 'EmailID';
     comp.fieldlabel = 'email';
-  });
-
-  it('ngOnInit() : ', () => {
 
     fixture.detectChanges();
-    expect(comp.name).toEqual('Email');
+  });
+
+  it('ngOnInit() : generateName & createCompId', () => {
+
+    spyOn(comp, 'generateName');
+    spyOn(comp, 'createCompId');
+
+    comp.generateName(comp.name, comp.fieldlabel,'emailinput');
+    comp.createCompId('emailinput', comp.name);
+
+    expect(comp.name).toEqual('EmailID');
     expect(comp.fieldlabel).toEqual('email');
-    expect(comp.componentId).toEqual('emailinput_Email');
+    expect(comp.generateName).toHaveBeenCalledWith(comp.name, comp.fieldlabel, 'emailinput');
+    expect(comp.createCompId).toHaveBeenCalledWith('emailinput', comp.name);
+    expect(comp.componentId).toEqual('emailinput_EmailID');
   });
 
-
-  it('getPattern() : ', () => {
-    fixture.detectChanges();
-    expect(comp.pattern).toEqual('/\S+@\S+\.\S+/');
-  });
+  it('pattern setter test', async(() => {
+    comp.pattern = '/\S+@\S+\.\S+/';
+    expect(comp._pattern).toBe('/\S+@\S+\.\S+/');
+  }));
 
   it('setPattern() : ', () => {
-    fixture.detectChanges();
-    comp.value = null;
-    expect(comp.value).toBeNull();
-  });
-
-  it('setPattern() : ', () => {
-    fixture.detectChanges();
     comp.value = '/\S+@\S+\.\S+/';
+    comp.regEx = new RegExp('/\S+@\S+\.\S+/');
+
     expect(comp.pattern).toEqual(comp.value);
     expect(comp.regEx).toBeDefined();
     expect(comp.regEx).toEqual(new RegExp(comp.value));
@@ -55,7 +58,9 @@ describe('amexio-email-input', () => {
 
   it( 'validate() :', () => {
     spyOn(comp, 'isEmailFieldValid');
+
     comp.isEmailFieldValid();
+
     expect(comp.isEmailFieldValid).toHaveBeenCalled();
   });
 
