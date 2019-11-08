@@ -23,13 +23,13 @@ describe('amexio-button', () => {
   it('buttonClick(): ', () => {
     const button = fixture.debugElement.query(By.css('button'));
     comp.ispressed = true;
-    comp.disabled = true;
+    comp.disabled = false;
     fixture.detectChanges();
     expect(comp.ispressed).toEqual(true);
     if(!comp.disabled)
     {
       fixture.detectChanges();
-      expect(comp.disabled).toEqual(true);
+      expect(comp.disabled).toEqual(false);
       button.triggerEventHandler('click', {});
       fixture.detectChanges();
       expect(comp.ispressed).toEqual(false);
@@ -43,17 +43,17 @@ describe('amexio-button', () => {
   it('buttonClick()', () => {
     const button = fixture.debugElement.query(By.css('button'));
     comp.ispressed = false;
-    comp.disabled = false;
+    comp.disabled = true;
     fixture.detectChanges();
     expect(comp.ispressed).toEqual(false);
-    expect(comp.disabled).toEqual(false);
+    expect(comp.disabled).toEqual(true);
   });
 
   it('iconClick()',()=>{
 
-    comp.disabled = true;
-    expect(comp.disabled).toBeTruthy();
-    fixture.debugElement.query(By.css('amexio-c-icon'))
+    comp.disabled = false;
+    expect(comp.disabled).toBeFalsy();
+    fixture.debugElement.query(By.css('amexio-c-icon'));
 //          .triggerEventHandler('click',null);
     fixture.detectChanges();
 
