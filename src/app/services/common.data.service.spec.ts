@@ -10,8 +10,8 @@ describe('CommonDataService', () => {
    beforeEach(() => {
      mockHttp = jasmine.createSpyObj('mockHttp', ['get', 'post'])
      commonDataService = new CommonDataService(mockHttp);
-
    });
+
    it('fetch data ith get method ', () => {
      serviceUrl = '';
      methodType = 'get';
@@ -38,7 +38,5 @@ describe('CommonDataService', () => {
     commonDataService.uploadFile(serviceUrl, methodType, requestData);
     expect(methodType).toEqual('post');
     expect(mockHttp.post).toHaveBeenCalledWith(serviceUrl, requestData , jasmine.any(Object));
-
-
   });
 });

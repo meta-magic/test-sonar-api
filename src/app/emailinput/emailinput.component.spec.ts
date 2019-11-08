@@ -39,6 +39,7 @@ describe('amexio-email-input', () => {
     expect(comp.fieldlabel).toEqual('email');
     expect(comp.generateName).toHaveBeenCalledWith(comp.name, comp.fieldlabel, 'emailinput');
     expect(comp.createCompId).toHaveBeenCalledWith('emailinput', comp.name);
+
     expect(comp.componentId).toEqual('emailinput_EmailID');
   });
 

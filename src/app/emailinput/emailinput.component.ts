@@ -15,10 +15,9 @@
 *
 */
 
-import { Component, EventEmitter, forwardRef, Input, OnInit, Output, ViewChild } from '@angular/core';
+import { Component, forwardRef, Input, OnInit, ViewChild } from '@angular/core';
 import { FormControl, NG_VALIDATORS, NG_VALUE_ACCESSOR, NgModel, Validators } from '@angular/forms';
 import { BaseInputEventComponent } from '../base/base.inputevent.component';
-import { ValueAccessorBaseComponent } from '../base/value-accessor';
 
 @Component({
   selector: 'amexio-email-input',
@@ -172,11 +171,15 @@ description : Sets the error message for validation
   }
 
 
-  public validate(c: FormControl) {
+  public validate() {
     return this.isEmailFieldValid() ? null : {
       jsonParseError: {
         valid: true,
       },
     };
+  }
+
+  public testMethod(x: number) {
+    return x + 5;
   }
 }
