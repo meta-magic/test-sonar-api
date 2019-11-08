@@ -6,7 +6,7 @@ addons:
   sonarcloud:
     organization: "metamagic" # the key of the org you chose at step #3
     token:
-      secure: c52d859733b46f36e4e3d812f24f416b8fb6b9a0 # encrypted value of your token   
+      secure: "UYqzNh+vsf9P8oCl7jNKKjKmgZ6frzA77gAgcE7xLtXqrisjyebzkLRFCDg4U5oPeq+3B9qI6KtZcxA0ywArTJUZ6yC/2Zt2zeutUN8aMOqiYPOFUmpUyDewD0wKZxQ521bWgrXjRXz+Eagx5SPzaR0cbiaYPVQHkisi/0YdIUZUoYp9k3uIiTCBQB6zXU1iBDn1QGquEl7sBn1E51c4ts/jvlrp2qizglDcDDmEkicmT0qaGDumrb01W9rYgBCrrGdVqo4CUU6r0HbzizcmGm2xXUhIOXUqpJIc9ENDbdSsG8gYzKHUTEcxopwJ9kQe/EcrV+V32q0cEu3D4Dz232QifMIVd2YRhlTw+W2L9Ff5RRY/uK1LRnyYYFVrr7hOKheb8hdar6fdJbCkfTqQZHT0aTfuj+8MxQpE368AfR+vcSOQAPm3BkzyYH50zzVGgayV5erD1EKMFoAO2eUzzHIzyYaBjdG5nRRT6FGuaQS2c8BvK3EEs8kx2YM61ngEyGiitnM1HmUfS/M8bju3ve8rrgE2Z6MQKT72B8um/2p2ejp3hzJQIN0b12UM14EEWJqH+8JwaN7HmdVTlcRtt2TPLSayV/HWZ2MK71yJxzBX8KjdxAuVXdOkzyDjohSIq68fAe5zvmR4k2vbHf3ckmJNPC7v0Bb0IQYwSpgvfxc=" # encrypted value of your token   
  
 language: node_js
 node_js:
@@ -16,7 +16,6 @@ before_script:
   - export CHROME_BIN=chromium-browser
   - export DISPLAY=:99.0
   - sh -e /etc/init.d/xvfb start
-  - travis encrypt 238b1cbcd52ad9a242dc24778991fc17cd7d588c
             
 script: 
   - npm install
