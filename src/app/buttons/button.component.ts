@@ -181,6 +181,7 @@ description : Set the color
       this.onClick.emit(event);
     }
   }
+
   IconClick(event: any) {
     if (!this.disabled) {
       event.stopPropagation();
