@@ -20,7 +20,7 @@ describe('amexio-button', () => {
     event = jasmine.createSpyObj('event', ['preventDefault', 'stopPropagation']);
   });
 
-  it('buttonClick(): ', () => {
+  it('buttonClick(): event triggered', () => {
     spyOn(comp, 'buttonClick');
     const button = fixture.debugElement.query(By.css('button'));
     comp.ispressed = true;
@@ -38,7 +38,7 @@ describe('amexio-button', () => {
   });
 
 
-  it('buttonClick()', () => {
+  it('buttonClick(): event not triggered', () => {
     const button = fixture.debugElement.query(By.css('button'));
     spyOn(comp, 'buttonClick');
     comp.ispressed = false;
@@ -49,7 +49,7 @@ describe('amexio-button', () => {
     expect(comp.buttonClick).not.toHaveBeenCalled();
   });
 
-  it('iconClick()',()=>{
+  it('iconClick(): event triggered',()=>{
   
     comp.disabled = false;
     const icon = fixture.debugElement.query(By.css('.fa fa-close'));
@@ -62,4 +62,51 @@ describe('amexio-button', () => {
       expect(comp.onIconClick).toHaveBeenCalled();
     }
   });
+
+  it('iconClick(): event not triggered',()=>{
+      comp.disabled = true;
+      const icon = fixture.debugElement.query(By.css('.fa fa-close'));
+      spyOn(comp,'onIconClick');
+      fixture.detectChanges();
+      expect(comp.disabled).toBe(true);
+      expect(comp.onIconClick).not.toHaveBeenCalled();
+  });
+
+  it('ngOnInit(): getBGStyle is not null', () => {
+    comp.bgcolor = '#444444';
+    comp.color = '#000000';
+    //comp.type = 'default';
+    const json = {
+      'background-color': '#444444',
+      'color': '#000000',
+    };
+    spyOn(comp, 'getBGStyle');
+    if(comp.getBGStyle()){
+      fixture.detectChanges();
+      expect(comp.getBGStyle).toHaveBeenCalled();
+      expect(comp.bgColorClass).toEqual(this.json);
+    }
+    spyOn(comp, 'badgeClass');
+    fixture.detectChanges();
+    comp.badgeClass();
+    expect(comp.badgeClass).toHaveBeenCalled();
+    expect(comp.badgeCssClass).toBeUndefined();
+  });
+
+  it('ngOnInit(): getBGStyle is null', () => {
+    comp.bgcolor = null;
+    comp.color = null;
+
+    spyOn(comp, 'getBGStyle');
+    if(comp.getBGStyle()==null) {
+      fixture.detectChanges();
+      expect(comp.getBGStyle).toHaveBeenCalled();
+    }
+    spyOn(comp, 'badgeClass');
+    fixture.detectChanges();
+    comp.badgeClass();
+    expect(comp.badgeClass).toHaveBeenCalled();
+    expect(comp.badgeCssClass).toEqual('');
+  });
+
 });
