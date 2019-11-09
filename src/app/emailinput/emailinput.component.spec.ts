@@ -66,8 +66,13 @@ describe('amexio-email-input', () => {
   });
 
   it('testMethod(x)', async(() => {
-    const x = comp.testMethod(100);
-    expect(x).toBe(105);
+    spyOn(comp,'testMethod').and.returnValue(105);
+    var x = comp.testMethod(100);
+
+    fixture.detectChanges();
+    expect(comp.testMethod).toHaveBeenCalledWith(100);
+
+    //expect(this.x).toEqual(105);
   }));
 
 });
