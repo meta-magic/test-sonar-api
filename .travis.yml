@@ -19,7 +19,7 @@ before_script:
             
 script: 
   - npm install
-  - ng test --watch=false
+  - ng test --watch=false --code-coverage
   - if [ "$TRAVIS_PULL_REQUEST" = "false" ]; then sonar-scanner ; fi
   - ng build
  
