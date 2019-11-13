@@ -179,7 +179,4 @@ description : Sets the error message for validation
     };
   }
 
-  public testMethod(x: number) {
-    return x + 5;
-  }
 }
