@@ -21,8 +21,8 @@
 
   <ng-container *ngIf="icon">
     <span style="padding-right: 5px;" (click)="buttonClick($event)">
-      <amexio-c-icon [customclass]="icon">
-      </amexio-c-icon>
+      <my-amexio-c-icon [customclass]="icon">
+      </my-amexio-c-icon>
     </span>
   </ng-container>
 
@@ -33,7 +33,7 @@
     </span>
     </ng-container>
     <span style="padding-right: 5px;" *ngIf="loading">
-      <amexio-c-icon key="button-loading-icon" [label]="label"></amexio-c-icon>
+      <my-amexio-c-icon key="button-loading-icon" [label]="label"></my-amexio-c-icon>
     </span>
     <ng-container *ngIf="!icon">{{label}}</ng-container>
 
@@ -43,14 +43,14 @@
   </span>
   <ng-container *ngIf="rightIcon">
     <span style="padding-left: 5px;" *ngIf="rightIcon" (click)="buttonClick($event)">
-      <amexio-c-icon [customclass]="rightIcon">
-      </amexio-c-icon>
+      <my-amexio-c-icon [customclass]="rightIcon">
+      </my-amexio-c-icon>
     </span>
   </ng-container>
   <ng-container *ngIf="closableIcon">
     <span style="padding-left: 5px;" *ngIf="closableIcon" (click)="IconClick($event)" id='#icon'>
-      <amexio-c-icon [customclass]="'fa fa-close'">
-      </amexio-c-icon>
+      <my-amexio-c-icon [customclass]="'fa fa-close'">
+      </my-amexio-c-icon>
     </span>
   </ng-container>
 </button>

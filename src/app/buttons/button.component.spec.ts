@@ -3,21 +3,21 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { FormsModule } from '@angular/forms';
 import { By } from '@angular/platform-browser';
 import { IconLoaderService } from '../services/icon.service';
-import { CommonIconComponent } from '../base/components/common.icon.component';
-import { AmexioButtonComponent } from './button.component';
+import { MyCommonIconComponent } from '../base/components/common.icon.component';
+import { MyAmexioButtonComponent } from './button.component';
 
 describe('amexio-button', () => {
-  let comp: AmexioButtonComponent;
-  let fixture: ComponentFixture<AmexioButtonComponent>;
+  let comp: MyAmexioButtonComponent;
+  let fixture: ComponentFixture<MyAmexioButtonComponent>;
   let buttonHtml, btn, element;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
       imports: [FormsModule],
-      declarations: [AmexioButtonComponent, CommonIconComponent],
+      declarations: [MyAmexioButtonComponent, MyCommonIconComponent],
       providers: [IconLoaderService],
     });
-    fixture = TestBed.createComponent(AmexioButtonComponent);
+    fixture = TestBed.createComponent(MyAmexioButtonComponent);
     comp = fixture.componentInstance;
     element = fixture.debugElement;
     btn = element.nativeElement.querySelector('button');

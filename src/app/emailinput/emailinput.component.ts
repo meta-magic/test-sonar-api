@@ -20,15 +20,15 @@ import { FormControl, NG_VALIDATORS, NG_VALUE_ACCESSOR, NgModel, Validators } fr
 import { BaseInputEventComponent } from '../base/base.inputevent.component';
 
 @Component({
-  selector: 'amexio-email-input',
+  selector: 'my-amexio-email-input',
   templateUrl: './emailinput.component.html',
   providers: [{
-    provide: NG_VALUE_ACCESSOR, useExisting: forwardRef(() => AmexioEmailInputComponent), multi: true,
+    provide: NG_VALUE_ACCESSOR, useExisting: forwardRef(() => MyAmexioEmailInputComponent), multi: true,
   }, {
-    provide: NG_VALIDATORS, useExisting: forwardRef(() => AmexioEmailInputComponent), multi: true,
+    provide: NG_VALIDATORS, useExisting: forwardRef(() => MyAmexioEmailInputComponent), multi: true,
   }],
 })
-export class AmexioEmailInputComponent  extends BaseInputEventComponent implements OnInit, Validators {
+export class MyAmexioEmailInputComponent  extends BaseInputEventComponent implements OnInit, Validators {
 
   /*
    Properties

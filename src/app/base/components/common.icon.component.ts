@@ -19,7 +19,7 @@
 import {Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges} from '@angular/core';
 import { IconLoaderService } from '../../services/icon.service';
 @Component({
-  selector: 'amexio-c-icon',
+  selector: 'my-amexio-c-icon',
    template: `
    <ng-container *ngIf="iconLoaderService.iconToUse == 'fa'">
 
@@ -74,7 +74,7 @@ import { IconLoaderService } from '../../services/icon.service';
   `],
 })
 
-export class CommonIconComponent implements OnInit, OnChanges {
+export class MyCommonIconComponent implements OnInit, OnChanges {
 
 /*
 Properties

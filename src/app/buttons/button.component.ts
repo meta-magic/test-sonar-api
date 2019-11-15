@@ -22,11 +22,11 @@ export const COMPONENT_CLASS_MAP: any = {
   secondary: 'btn-secondary-badge',
 };
 @Component({
-  selector: 'amexio-button',
+  selector: 'my-amexio-button',
   templateUrl: './button.component.html',
   styleUrls: ['./button.component.scss'],
 })
-export class AmexioButtonComponent implements OnInit {
+export class MyAmexioButtonComponent implements OnInit {
   roundedgeclass: string;
 
   badgeclsname: any;

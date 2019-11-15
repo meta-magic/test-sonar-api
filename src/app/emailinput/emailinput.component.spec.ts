@@ -1,23 +1,23 @@
 import { ComponentFixture, TestBed, async } from '@angular/core/testing';
 import { FormsModule, FormControl } from '@angular/forms';
 import { IconLoaderService } from '../services/icon.service';
-import { AmexioButtonComponent } from './../buttons/button.component';
-import { AmexioEmailInputComponent } from './emailinput.component';
+import { MyAmexioButtonComponent } from './../buttons/button.component';
+import { MyAmexioEmailInputComponent } from './emailinput.component';
 import { AmexioInputHelperComponent } from '../base/input.helper.component';
-import { CommonIconComponent } from '../base/components/common.icon.component';
+import { MyCommonIconComponent } from '../base/components/common.icon.component';
 
 describe('amexio-email-input', () => {
-  let comp: AmexioEmailInputComponent;
-  let fixture: ComponentFixture<AmexioEmailInputComponent>;
+  let comp: MyAmexioEmailInputComponent;
+  let fixture: ComponentFixture<MyAmexioEmailInputComponent>;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
       imports: [FormsModule],
-      declarations: [AmexioEmailInputComponent, CommonIconComponent, AmexioButtonComponent, AmexioInputHelperComponent],
+      declarations: [MyAmexioEmailInputComponent, MyCommonIconComponent, MyAmexioButtonComponent, AmexioInputHelperComponent],
 
       providers: [IconLoaderService],
     });
-    fixture = TestBed.createComponent(AmexioEmailInputComponent);
+    fixture = TestBed.createComponent(MyAmexioEmailInputComponent);
     comp = fixture.componentInstance;
 
     comp._pattern = '/\S+@\S+\.\S+/';

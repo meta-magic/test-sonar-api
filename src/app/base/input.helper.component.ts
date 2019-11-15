@@ -17,11 +17,11 @@
 import { Component, Input } from '@angular/core';
 
 @Component({
-    selector: 'input-help',
+    selector: 'my-input-help',
     templateUrl: './input.helper.component.html',
     styleUrls: ['./input.helper.scss'],
 })
-export class AmexioInputHelperComponent {
+export class MyAmexioInputHelperComponent {
     public _errormsg: string;
     public _minmsg: string;
     public _maxmsg: string;
