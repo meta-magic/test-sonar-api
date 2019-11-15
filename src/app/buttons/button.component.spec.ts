@@ -81,7 +81,7 @@ describe('amexio-button', () => {
     // comp.type = 'default';
     const json = {
       'background-color': '#444444',
-      color: '#000000',
+      'color': '#000000'
     };
     spyOn(comp, 'getBGStyle');
     if (comp.getBGStyle()) {

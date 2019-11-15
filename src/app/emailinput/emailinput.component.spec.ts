@@ -3,17 +3,20 @@ import { FormsModule, FormControl } from '@angular/forms';
 import { IconLoaderService } from '../services/icon.service';
 import { MyAmexioButtonComponent } from './../buttons/button.component';
 import { MyAmexioEmailInputComponent } from './emailinput.component';
-import { AmexioInputHelperComponent } from '../base/input.helper.component';
+import { MyAmexioInputHelperComponent } from '../base/input.helper.component';
 import { MyCommonIconComponent } from '../base/components/common.icon.component';
 
-describe('amexio-email-input', () => {
+describe('my-amexio-email-input', () => {
   let comp: MyAmexioEmailInputComponent;
   let fixture: ComponentFixture<MyAmexioEmailInputComponent>;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
       imports: [FormsModule],
-      declarations: [MyAmexioEmailInputComponent, MyCommonIconComponent, MyAmexioButtonComponent, AmexioInputHelperComponent],
+      declarations: [MyAmexioEmailInputComponent,
+        MyCommonIconComponent,
+        MyAmexioButtonComponent,
+        MyAmexioInputHelperComponent],
 
       providers: [IconLoaderService],
     });
